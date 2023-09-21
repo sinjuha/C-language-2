@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    char name[20];
+    int math;
+    int kr;
+    int average;
+};
+
+int main() {
+    struct Student ST[3];
+    for (int i = 0; i < 3; i++) {
+        printf("학생 이름: ");
+        scanf("%s", ST[i].name);
+        printf("%s의 수학 성적: ", ST[i].name);
+        scanf("%d", &ST[i].math);
+        printf("%s의 국어 성적: ", ST[i].name);
+        scanf("%d", &ST[i].kr);
+    }
+    for (int i = 0; i < 3; i++) {
+        ST[i].average = (ST[i].math + ST[i].kr) / 2;
+    }
+    printf("\n개인별, 과목별 성적 및 평균:\n");
+    printf("학생 이름\t수학 성적\t국어 성적\t평균\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%s\t\t%d\t%d\t%d\n", ST[i].name, ST[i].math, ST[i].kr, ST[i].average);
+    }
+    int math_total = 0, kr_total = 0;
+    for (int i = 0; i < 3; i++) {
+        math_total += ST[i].math;
+        kr_total += ST[i].kr;
+    }
+    int math_average = math_total / 3;
+    int kr_average = kr_total / 3;
+    printf("과목별 평균 성적:\t");
+    printf("\t수학 평균: %d", math_average);
+    printf("\t국어 평균: %d", kr_average);
+    return 0;
+}
