@@ -1,0 +1,22 @@
+visual studio에 들어가서 도구 -> 명령줄 -> 개발자 명령 프롬프트로 들어간다
+mkdir anu
+cd anu
+notepad math.c
+
+math.c 코드
+#include<stdio.h>
+void main(){
+printf("%d\n", add(22,33));
+}
+
+notepad add.c
+
+add.c 코드
+int add(int a, int b){
+return(a+b);
+}
+
+add.c math.c 
+lib /OUT:mymath.lib add.obj math.obj
+link test mymath.lib
+c:\> test
